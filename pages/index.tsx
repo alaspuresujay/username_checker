@@ -7,7 +7,12 @@ import { socialMediaSites } from "../data/socialMediaSites";
 // import { BsFacebook } from "react-icons/bs";
 import InputCard from "../src/component/InputCard";
 import { useEffect, useState } from "react";
-import { getFacebookUser, getGithubUser, getInstagramUser } from "../service";
+import {
+  getFacebookUser,
+  getGithubUser,
+  getInstagramUser,
+  getTwitterUser,
+} from "../service";
 
 const Home: NextPage = () => {
   const [username, setUsername] = useState("");
@@ -38,7 +43,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     (async () => {
-      const instagramData = await getFacebookUser("alaspuresujay");
+      const instagramData = await getTwitterUser("alaspuresujay");
       console.log("fetched Data  ", instagramData);
     })();
   }, []);
@@ -53,7 +58,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="/">Username Checker!</a>
         </h1>
 
         <InputCard fetchUsername={fetchUsername} />

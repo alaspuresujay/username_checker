@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const getGithubUser = (data) =>
   fetch(`https://api.github.com/users/${data}`)
     .then((res) => res.json())
@@ -67,4 +69,30 @@ export const getFacebookUser = (data) => {
     .then((response) => response.json())
     .then((result) => console.log("RESULT", result))
     .catch((error) => console.log("ERR> ", error));
+};
+
+export const getTwitterUser = (username) => {
+  var myHeaders = new Headers();
+  myHeaders.append(
+    "Authorization",
+    "Bearer AAAAAAAAAAAAAAAAAAAAAGTcZgEAAAAAynPYQ3KkoeBEEl0410P3dCGvpes%3Ddq5UaDAxMZXGtO4mGXxM2UUMul56Qx7hFyphV1aaHH4uFPoR5S"
+  );
+  myHeaders.append(
+    "Cookie",
+    'guest_id=v1%3A164603045138448447; guest_id_ads=v1%3A164603045138448447; guest_id_marketing=v1%3A164603045138448447; personalization_id="v1_lgz5E49DV1pbNaOtRQBi/Q=="'
+  );
+
+  var requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow",
+  };
+
+  fetch(
+    "https://api.twitter.com/2/user/by/username/alaspuresujay?tweet.fields=id,text&user.fields=name,username,profile_image_url,location,url,description",
+    requestOptions
+  )
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.log("error", error));
 };
