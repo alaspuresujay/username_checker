@@ -1,0 +1,26 @@
+.algo__container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: #fafafa;
+}
+.algo__content {
+  width: 100%;
+  height: 30vh;
+  background-color: #fafa;
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+}
+
+.algo__content__item {
+  width: 5px;
+  height: 100%;
+  background-color: red;
+  content: " ";
+}
